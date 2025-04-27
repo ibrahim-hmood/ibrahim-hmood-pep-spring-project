@@ -37,7 +37,7 @@ public class SocialMediaController
     private MessageService messageService;
 
     /*
-     * createMessage: creates a message if its text is not blank, is not over 255 characters, and if
+     * createMessage: makes a message if its text is not blank, is not over 255 characters, and if
      * posted by has a real, existing user. If successful, return the created message and a status code
      * of 200. If it fails, return 400 as status code.
      * @param message: message to be recorded
@@ -65,21 +65,21 @@ public class SocialMediaController
     }
 
     /*
-     * getAllMessages: returns a list of all messages alongside 200 status code
+     * getAllMessages: gets a list of all messages alongside 200 status code
      * @returns list of all messages. List could be empty. Returns status code 200 with that.
      */
     @GetMapping("/messages")
-    public ResponseEntity getAllMessages()
+    public ResponseEntity<List<Message>> getAllMessages()
     {
         //Get a list of all messages on Message table
             //Get all messages as list
         List<Message> messages = this.messageService.getAllMessages();
             //And return it with 200 status code
-        return new ResponseEntity<>(messages, HttpStatus.OK);
+        return new ResponseEntity<List<Message>>(messages, HttpStatus.OK);
     }
 
     /*
-     * getMessageByMessageID: returns message by a given message ID. Always returns message, even if it is not found.
+     * getMessageByMessageID: gets message by a given message ID. Always returns message, even if it is not found.
      * Also, sets status code to 200.
      * @param messageId: ID of message to be looked for
      * @returns status code 200 alongside a message, even if none is found 
@@ -96,7 +96,7 @@ public class SocialMediaController
     }
 
     /*
-     * updateMessageByID: updates message by message ID. If message ID exists, message
+     * updateMessageByID: changes message by message ID. If message ID exists, message
      * text is not too long, and message text is not empty, message is updated
      * and this returns 200. Otherwise, returns 400.
      * @param messageID: ID of message possibly being replaced
@@ -121,7 +121,7 @@ public class SocialMediaController
     }
 
     /*
-     * deleteMessage: delete a message by its ID
+     * deleteMessage: remove a message by its ID
      * @param messageId: ID of message to be deleted
      * @returns number of messages deleted
      */
@@ -184,7 +184,7 @@ public class SocialMediaController
     }
 
     /*
-     * getAllMessagesPostedBy: gets all messages posted by user. returns list and 200 status even if messages not found.
+     * getAllMessagesPostedBy: returns all messages posted by user. returns list and 200 status even if messages not found.
      * @param postedBy: user whose messages we want to get
      * @returns list of messages with status code
      */

@@ -16,7 +16,7 @@ public class MessageService
     private MessageRepository messageRepository;
 
     /*
-     * addMessage: adds message to Message table
+     * addMessage: inserts message to Message table
      * @param message: message to be added
      * @returns new message if it was added
      */

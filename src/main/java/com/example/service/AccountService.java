@@ -15,7 +15,7 @@ public class AccountService
     private AccountRepository repository;
 
     /*
-     * findAccountByID: looks for account using given ID
+     * findAccountByID: searches for account using given ID
      * @param id: potential ID of account
      * @returns Account if ID is found
      */
@@ -26,7 +26,7 @@ public class AccountService
     }
 
     /*
-     * findAccountByUserName: looks for account by username
+     * findAccountByUserName: searches for account by username
      * @param username: username to look for
      * @returns Account if one is found
      */

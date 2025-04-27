@@ -16,14 +16,14 @@ import com.example.entity.Message;
 public interface MessageRepository extends JpaRepository<Message, Integer>
 {
     /*
-     * findAllByPostedBy: gets all messages posted by user
+     * findAllByPostedBy: finds all messages posted by user
      * @param postedBy: ID of user whose messages we want to get
      * @returns list of messages
      */
     List<Message> findAllByPostedBy(int postedBy);
 
     /*
-     * deleteMessageByMessageId: deletes a message by its id, returns number of rows changed
+     * deleteMessageByMessageId: removes a message by its id, returns number of rows changed
      * @param messageId: ID of message to be deleted
      * @returns number of rows deleted
      */
